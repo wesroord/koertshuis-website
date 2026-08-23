@@ -99,6 +99,27 @@ export default function HomePage() {
         .btn-white { background:#fff; color:var(--red); font-size:15px; font-weight:800; padding:14px 36px; border-radius:8px; border:none; display:inline-block; transition:transform .15s; }
         .btn-white:hover { transform:translateY(-2px); }
 
+        /* Reviews */
+        .reviews-sec { padding:72px 32px; background:#fff; border-top:1px solid var(--border); }
+        .reviews-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; max-width:1200px; margin:0 auto; }
+        .reviews-header { text-align:center; margin-bottom:48px; max-width:1200px; margin-left:auto; margin-right:auto; }
+        .reviews-score { display:inline-flex; align-items:center; gap:10px; background:var(--light); border:1.5px solid var(--border); border-radius:100px; padding:8px 20px; margin-bottom:16px; }
+        .reviews-score-num { font-size:22px; font-weight:900; color:var(--dark); letter-spacing:-.03em; }
+        .reviews-stars { display:flex; gap:2px; }
+        .reviews-stars svg { fill:#f59e0b; }
+        .reviews-count { font-size:13px; color:var(--muted); }
+        .review-card { background:var(--light); border:1.5px solid var(--border); border-radius:14px; padding:24px; display:flex; flex-direction:column; gap:12px; }
+        .review-top { display:flex; align-items:center; gap:12px; }
+        .review-avatar { width:40px; height:40px; border-radius:50%; background:var(--red); color:#fff; font-size:16px; font-weight:800; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+        .review-meta { flex:1; }
+        .review-name { font-size:14px; font-weight:700; color:var(--dark); }
+        .review-date { font-size:12px; color:var(--muted); }
+        .review-rating { display:flex; gap:2px; }
+        .review-rating svg { fill:#f59e0b; }
+        .review-text { font-size:13px; color:var(--muted); line-height:1.7; }
+        .reviews-cta { text-align:center; margin-top:32px; }
+        .reviews-cta a { font-size:13px; color:var(--red); font-weight:600; }
+
         /* Openingstijden strip */
         .hours-strip { background:var(--dark); color:#fff; padding:40px 32px; }
         .hours-inner { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:auto 1fr; gap:48px; align-items:center; }
@@ -199,6 +220,52 @@ export default function HomePage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* GOOGLE REVIEWS */}
+      <section className="reviews-sec">
+        <div className="reviews-header">
+          <div className="sec-label">Wat klanten zeggen</div>
+          <h2 className="sec-title">Google Reviews</h2>
+          <div style={{ marginTop:16, display:"flex", justifyContent:"center" }}>
+            <div className="reviews-score">
+              <span className="reviews-score-num">4,5</span>
+              <div className="reviews-stars">
+                {[1,2,3,4].map(i => (
+                  <svg key={i} width="18" height="18" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                ))}
+                <svg width="18" height="18" viewBox="0 0 24 24"><defs><linearGradient id="half"><stop offset="50%" stopColor="#f59e0b"/><stop offset="50%" stopColor="#d1d5db"/></linearGradient></defs><path fill="url(#half)" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              </div>
+              <span className="reviews-count">13 beoordelingen</span>
+            </div>
+          </div>
+        </div>
+        <div className="reviews-grid">
+          {[
+            { name:"Louis", initial:"L", rating:4, date:"6 jaar geleden", text:"Goede winkel met veel kwaliteit aan Electra. Wasmachines drogers en tv niet veel op voorraad maar wel goed spul." },
+            { name:"Mark Geerdink", initial:"M", rating:4, date:"3 jaar geleden", text:"Prima geholpen door een hele aardige dame. Goede service en duidelijke uitleg over de producten." },
+            { name:"Inge Kanon", initial:"I", rating:5, date:"7 jaar geleden", text:"Prima winkel. Je wordt hier op je wenken bediend." },
+          ].map(r => (
+            <div key={r.name} className="review-card">
+              <div className="review-top">
+                <div className="review-avatar">{r.initial}</div>
+                <div className="review-meta">
+                  <div className="review-name">{r.name}</div>
+                  <div className="review-date">{r.date}</div>
+                </div>
+                <div className="review-rating">
+                  {Array.from({length:r.rating}).map((_,i) => (
+                    <svg key={i} width="14" height="14" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  ))}
+                </div>
+              </div>
+              <p className="review-text">{r.text}</p>
+            </div>
+          ))}
+        </div>
+        <div className="reviews-cta">
+          <a href="https://g.co/kgs/koertshuis" target="_blank" rel="noopener noreferrer">Alle beoordelingen bekijken op Google</a>
         </div>
       </section>
 

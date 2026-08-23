@@ -13,18 +13,18 @@ const CATEGORIES = [
 ];
 
 const PRODUCTS = [
-  { id:1, name:"Wasmachine", cat:"Huishoudelijke apparaten", brand:"Diverse merken", price:"Op aanvraag", img:"/winkel.jpg", desc:"Wij verkopen diverse merken wasmachines voor elke behoefte en budget." },
-  { id:2, name:"Droger", cat:"Huishoudelijke apparaten", brand:"Diverse merken", price:"Op aanvraag", img:"/winkel.jpg", desc:"Condensdrogers en warmtepompdrogers in diverse uitvoeringen." },
-  { id:3, name:"Vaatwasser", cat:"Huishoudelijke apparaten", brand:"Diverse merken", price:"Op aanvraag", img:"/winkel.jpg", desc:"Inbouw- en vrijstaande vaatwassers, inclusief montage op aanvraag." },
-  { id:4, name:"Televisie", cat:"Huishoudelijke apparaten", brand:"Diverse merken", price:"Op aanvraag", img:"/winkel.jpg", desc:"Moderne televisies in diverse formaten met heldere beeldkwaliteit." },
-  { id:5, name:"Strijkijzer", cat:"Huishoudelijke apparaten", brand:"Diverse merken", price:"Op aanvraag", img:"/winkel.jpg", desc:"Strijkijzers en stoomstrijkstations van betrouwbare merken." },
-  { id:6, name:"Spaarlamp / LED", cat:"Verlichting & lampen", brand:"Diverse merken", price:"Op aanvraag", img:"/winkel.jpg", desc:"Energiezuinige LED-verlichting in alle soorten fittingen en kelvinwaarden." },
-  { id:7, name:"Batterijen", cat:"Overig", brand:"Diverse merken", price:"Op aanvraag", img:"/winkel.jpg", desc:"Alkaline en oplaadbare batterijen in alle gebruikelijke maten." },
-  { id:8, name:"Wandcontactdoos", cat:"Schakelmateriaal", brand:"Diverse merken", price:"Op aanvraag", img:"/winkel.jpg", desc:"Wandcontactdozen, schakelaars en inbouwmateriaal in diverse kleuren en uitvoeringen." },
+  { id:1, name:"Wasmachine", cat:"Huishoudelijke apparaten", brand:"Diverse merken", price:"Op aanvraag", img:"/winkel-wasmachine.jpg", desc:"Wij verkopen diverse merken wasmachines voor elke behoefte en budget." },
+  { id:2, name:"Droger", cat:"Huishoudelijke apparaten", brand:"Diverse merken", price:"Op aanvraag", img:"/winkel-droger.jpg", desc:"Condensdrogers en warmtepompdrogers in diverse uitvoeringen." },
+  { id:3, name:"Vaatwasser", cat:"Huishoudelijke apparaten", brand:"Diverse merken", price:"Op aanvraag", img:"/winkel-vaatwasser.jpg", desc:"Inbouw- en vrijstaande vaatwassers, inclusief montage op aanvraag." },
+  { id:4, name:"Televisie", cat:"Huishoudelijke apparaten", brand:"Diverse merken", price:"Op aanvraag", img:"/winkel-televisie.jpg", desc:"Moderne televisies in diverse formaten met heldere beeldkwaliteit." },
+  { id:5, name:"Strijkijzer", cat:"Huishoudelijke apparaten", brand:"Diverse merken", price:"Op aanvraag", img:"/winkel-strijkijzer.jpg", desc:"Strijkijzers en stoomstrijkstations van betrouwbare merken." },
+  { id:6, name:"Spaarlamp / LED", cat:"Verlichting & lampen", brand:"Diverse merken", price:"Op aanvraag", img:"/winkel-led.jpg", desc:"Energiezuinige LED-verlichting in alle soorten fittingen en kelvinwaarden." },
+  { id:7, name:"Batterijen", cat:"Overig", brand:"Diverse merken", price:"Op aanvraag", img:"/winkel-batterijen.jpg", desc:"Alkaline en oplaadbare batterijen in alle gebruikelijke maten." },
+  { id:8, name:"Wandcontactdoos", cat:"Schakelmateriaal", brand:"Diverse merken", price:"Op aanvraag", img:"/winkel-contactdoos.jpg", desc:"Wandcontactdozen, schakelaars en inbouwmateriaal in diverse kleuren en uitvoeringen." },
   { id:9, name:"Canal Digital pakket", cat:"Satelliet & TV", brand:"Canal Digital", price:"Op aanvraag", img:"/astra-banner.png", desc:"Officieel Canal Digital en Astra dealer. Inclusief montage van het schotelsysteem." },
-  { id:10, name:"Schotelsysteem (Astra)", cat:"Satelliet & TV", brand:"Astra", price:"Op aanvraag", img:"/astra-banner.png", desc:"Complete satellietinstallatie door onze erkende monteurs. Inclusief aansluiting." },
-  { id:11, name:"Beveiligingscamera", cat:"Beveiliging", brand:"Diverse merken", price:"Op aanvraag", img:"/winkel.jpg", desc:"IP-camera's voor binnen en buiten. Wij verzorgen ook de installatie." },
-  { id:12, name:"Buismateriaal", cat:"Schakelmateriaal", brand:"Diverse merken", price:"Op aanvraag", img:"/winkel.jpg", desc:"Elektrotechnisch buismateriaal en toebehoren voor installaties." },
+  { id:10, name:"Schotelsysteem (Astra)", cat:"Satelliet & TV", brand:"Astra", price:"Op aanvraag", img:"/winkel-schotel.jpg", desc:"Complete satellietinstallatie door onze erkende monteurs. Inclusief aansluiting." },
+  { id:11, name:"Beveiligingscamera", cat:"Beveiliging", brand:"Diverse merken", price:"Op aanvraag", img:"/winkel-camera.jpg", desc:"IP-camera's voor binnen en buiten. Wij verzorgen ook de installatie." },
+  { id:12, name:"Buismateriaal", cat:"Schakelmateriaal", brand:"Diverse merken", price:"Op aanvraag", img:"/winkel-buismateriaal.jpg", desc:"Elektrotechnisch buismateriaal en toebehoren voor installaties." },
 ];
 
 export default function WinkelPage() {
