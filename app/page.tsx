@@ -30,10 +30,10 @@ const DIENSTEN = [
 ];
 
 const USP = [
-  { icon: "⚡", title: "24/7 Storingsdienst", desc: "Dag en nacht bereikbaar voor spoedreparaties en storingen." },
-  { icon: "🔧", title: "Vakkundig personeel", desc: "Gecertificeerde elektrotechnici met jarenlange ervaring." },
-  { icon: "🏠", title: "Particulier & zakelijk", desc: "Wij werken voor zowel particulieren als bedrijven." },
-  { icon: "📍", title: "Lokaal in De Lutte", desc: "Snel ter plaatse in De Lutte en de gehele regio Twente." },
+  { title: "24/7 Storingsdienst", desc: "Dag en nacht bereikbaar voor spoedreparaties en storingen." },
+  { title: "Vakkundig personeel", desc: "Gecertificeerde elektrotechnici met jarenlange ervaring." },
+  { title: "Particulier & zakelijk", desc: "Wij werken voor zowel particulieren als bedrijven." },
+  { title: "Lokaal in De Lutte", desc: "Snel ter plaatse in De Lutte en de gehele regio Twente." },
 ];
 
 export default function HomePage() {
@@ -88,7 +88,7 @@ export default function HomePage() {
         .usps { padding:64px 32px; background:#fff; border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
         .usp-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:24px; max-width:1200px; margin:0 auto; }
         .usp-card { text-align:center; padding:28px 20px; }
-        .usp-icon { font-size:36px; margin-bottom:14px; }
+        .usp-divider { width:32px; height:3px; background:var(--red); border-radius:2px; margin:0 auto 16px; }
         .usp-title { font-size:15px; font-weight:800; color:var(--dark); margin-bottom:8px; }
         .usp-desc { font-size:13px; color:var(--muted); line-height:1.65; }
 
@@ -138,7 +138,9 @@ export default function HomePage() {
           </div>
           <div className="hero-visual">
             <div className="hero-phone">
-              <div className="hero-phone-icon">📞</div>
+              <div className="hero-phone-icon">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.49 12 19.79 19.79 0 0 1 1.21 3.18 2 2 0 0 1 3.22 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16z"/></svg>
+              </div>
               <div>
                 <div className="hero-phone-text">24/7 Storingsdienst</div>
                 <a href="tel:0541551500" className="hero-phone-num">0541 55 1500</a>
@@ -165,7 +167,7 @@ export default function HomePage() {
         <div className="usp-grid">
           {USP.map(u => (
             <div key={u.title} className="usp-card">
-              <div className="usp-icon">{u.icon}</div>
+              <div className="usp-divider" />
               <div className="usp-title">{u.title}</div>
               <p className="usp-desc">{u.desc}</p>
             </div>

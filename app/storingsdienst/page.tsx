@@ -25,7 +25,7 @@ export default function StoringsdienstPage() {
         .sec-inner { max-width:1200px; margin:0 auto; }
         .info-grid { display:grid; grid-template-columns:1fr 1fr; gap:48px; }
         .info-card { background:#fff; border:1.5px solid var(--border); border-radius:16px; padding:36px 32px; }
-        .info-card-icon { font-size:40px; margin-bottom:16px; }
+        .info-card-bar { width:36px; height:3px; background:var(--red); border-radius:2px; margin-bottom:20px; }
         .info-card h3 { font-size:20px; font-weight:800; color:var(--dark); margin-bottom:12px; letter-spacing:-.02em; }
         .info-card p { font-size:14px; color:var(--muted); line-height:1.8; }
 
@@ -62,12 +62,12 @@ export default function StoringsdienstPage() {
         <div className="sec-inner">
           <div className="info-grid">
             <div className="info-card">
-              <div className="info-card-icon">⚡</div>
+              <div className="info-card-bar" />
               <h3>Acuut hulp nodig?</h3>
               <p>Wanneer u te maken krijgt met een elektrotechnische storing helpen wij u snel en vakkundig. Heeft u een acute storing in uw stroomvoorziening of een kortsluiting? Uw probleem wordt direct opgelost of we zoeken een zo passend mogelijke oplossing.</p>
             </div>
             <div className="info-card">
-              <div className="info-card-icon">🕐</div>
+              <div className="info-card-bar" />
               <h3>Altijd bereikbaar</h3>
               <p>Wij begrijpen dat storingen geen rekening houden met kantooruren. Daarom zijn wij 24 uur per dag en 7 dagen per week bereikbaar op 0541 55 1500. Ook in het weekend en op feestdagen staan wij voor u klaar.</p>
             </div>

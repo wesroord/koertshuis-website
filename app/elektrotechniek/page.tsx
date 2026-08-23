@@ -7,32 +7,26 @@ const SERVICES = [
   {
     title: "Elektrische installatie",
     desc: "Van nieuwbouw tot renovatie verzorgen wij de complete elektrische installatie in woningen en bedrijfspanden. Van het plaatsen van een enkele schakelaar tot de volledige installatie.",
-    icon: "🔌",
   },
   {
     title: "NEN-keuring (NEN 3140)",
     desc: "Onze vakbekwame monteurs voeren NEN 3140 keuringen uit op elektrische installaties, machines en gereedschappen. Wij leveren een officieel keuringsrapport.",
-    icon: "📋",
   },
   {
     title: "Camerabeveiliging",
     desc: "Beveiligingscamera's zijn tegenwoordig onmisbaar. Samen met u zoeken we naar een passende beveiligingsoplossing voor uw woning of bedrijfspand.",
-    icon: "📷",
   },
   {
     title: "Satellietinstallatie",
     desc: "Wij zijn officieel dealer van Canal Digitaal en Astra. Voor het plaatsen van een schotelsysteem bent u bij ons aan het juiste adres.",
-    icon: "📡",
   },
   {
     title: "Domotica",
     desc: "Maak uw woning of bedrijf slimmer met domotica. Verlichting, verwarming en beveiliging op afstand bedienen via uw telefoon of tablet.",
-    icon: "🏠",
   },
   {
     title: "Noodverlichting",
     desc: "Aanleggen en onderhouden van noodverlichtingsinstallaties conform de geldende normen. Wij zorgen dat u altijd voldoet aan de wet- en regelgeving.",
-    icon: "💡",
   },
 ];
 
@@ -56,7 +50,7 @@ export default function ElektrotechniekPage() {
         .services-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
         .service-card { background:#fff; border:1.5px solid var(--border); border-radius:16px; padding:32px 28px; transition:border-color .2s,transform .2s,box-shadow .2s; }
         .service-card:hover { border-color:var(--red); transform:translateY(-4px); box-shadow:0 16px 48px rgba(216,30,5,.08); }
-        .service-icon { font-size:36px; margin-bottom:16px; }
+        .service-num { width:36px; height:3px; background:var(--red); border-radius:2px; margin-bottom:20px; }
         .service-title { font-size:18px; font-weight:800; color:var(--dark); margin-bottom:10px; letter-spacing:-.02em; }
         .service-desc { font-size:14px; color:var(--muted); line-height:1.75; }
 
@@ -97,7 +91,7 @@ export default function ElektrotechniekPage() {
           <div className="services-grid">
             {SERVICES.map(s => (
               <div key={s.title} className="service-card">
-                <div className="service-icon">{s.icon}</div>
+                <div className="service-num" />
                 <div className="service-title">{s.title}</div>
                 <p className="service-desc">{s.desc}</p>
               </div>
