@@ -70,6 +70,7 @@ export default function Footer() {
           <div className="footer-bottom-inner">
             <span>&copy; {new Date().getFullYear()} Koertshuis Elektrotechniek B.V. &mdash; KvK: 88481182</span>
             <span>Dorpstraat 34, 7587 AD De Lutte</span>
+            <span>Powered by <a href="https://www.conneqtai.nl" target="_blank" rel="noopener noreferrer">ConneqtAI</a></span>
           </div>
         </div>
       </footer>
