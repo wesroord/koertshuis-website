@@ -56,7 +56,7 @@ export default function ContactPage() {
         .emergency-num { font-size:28px; font-weight:900; color:#fff; display:block; text-decoration:none; letter-spacing:-.02em; }
         .emergency-num:hover { text-decoration:underline; }
 
-        .map-card { border-radius:16px; overflow:hidden; border:1.5px solid var(--border); height:220px; }
+        .map-card { border-radius:16px; overflow:hidden; border:1.5px solid var(--border); height:280px; margin-top:24px; }
         .map-card iframe { width:100%; height:100%; border:0; display:block; }
 
         @media(max-width:900px){ .contact-inner{grid-template-columns:1fr;} .form-row{grid-template-columns:1fr;} }
@@ -126,6 +126,14 @@ export default function ContactPage() {
                 <button type="submit" className="form-submit">Bericht versturen</button>
               </form>
             )}
+            <div className="map-card">
+              <iframe
+                src="https://maps.google.com/maps?q=Koertshuis+Elektrotechniek,+Dorpstraat+34,+7587+AD+De+Lutte&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                title="Koertshuis Elektrotechniek op de kaart"
+                allowFullScreen
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
           </div>
 
           <div className="contact-sidebar">
@@ -185,15 +193,6 @@ export default function ContactPage() {
                   <span className="hours-time" style={h.t === "Gesloten" ? { color:"#ccc" } : {}}>{h.t}</span>
                 </div>
               ))}
-            </div>
-
-            <div className="map-card">
-              <iframe
-                src="https://maps.google.com/maps?q=Koertshuis+Elektrotechniek,+Dorpstraat+34,+7587+AD+De+Lutte&t=&z=16&ie=UTF8&iwloc=&output=embed"
-                title="Koertshuis Elektrotechniek op de kaart"
-                allowFullScreen
-                referrerPolicy="no-referrer-when-downgrade"
-              />
             </div>
 
             <div className="emergency-card">

@@ -99,16 +99,19 @@ export default function HomePage() {
         .btn-white { background:#fff; color:var(--red); font-size:15px; font-weight:800; padding:14px 36px; border-radius:8px; border:none; display:inline-block; transition:transform .15s; }
         .btn-white:hover { transform:translateY(-2px); }
 
-        /* Reviews */
-        .reviews-sec { padding:72px 32px; background:#fff; border-top:1px solid var(--border); }
-        .reviews-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; max-width:1200px; margin:0 auto; }
-        .reviews-header { text-align:center; margin-bottom:48px; max-width:1200px; margin-left:auto; margin-right:auto; }
+        /* Reviews carousel */
+        .reviews-sec { padding:72px 0; background:#fff; border-top:1px solid var(--border); overflow:hidden; }
+        .reviews-header { text-align:center; margin-bottom:48px; padding:0 32px; }
+        .reviews-track-wrap { overflow:hidden; }
+        .reviews-track { display:flex; gap:20px; width:max-content; animation:reviews-scroll 28s linear infinite; padding:4px 0 12px; }
+        .reviews-track:hover { animation-play-state:paused; }
+        @keyframes reviews-scroll { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
         .reviews-score { display:inline-flex; align-items:center; gap:10px; background:var(--light); border:1.5px solid var(--border); border-radius:100px; padding:8px 20px; margin-bottom:16px; }
         .reviews-score-num { font-size:22px; font-weight:900; color:var(--dark); letter-spacing:-.03em; }
         .reviews-stars { display:flex; gap:2px; }
         .reviews-stars svg { fill:#f59e0b; }
         .reviews-count { font-size:13px; color:var(--muted); }
-        .review-card { background:var(--light); border:1.5px solid var(--border); border-radius:14px; padding:24px; display:flex; flex-direction:column; gap:12px; }
+        .review-card { background:var(--light); border:1.5px solid var(--border); border-radius:14px; padding:24px; display:flex; flex-direction:column; gap:12px; width:300px; flex-shrink:0; }
         .review-top { display:flex; align-items:center; gap:12px; }
         .review-avatar { width:40px; height:40px; border-radius:50%; background:var(--red); color:#fff; font-size:16px; font-weight:800; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
         .review-meta { flex:1; }
@@ -117,7 +120,7 @@ export default function HomePage() {
         .review-rating { display:flex; gap:2px; }
         .review-rating svg { fill:#f59e0b; }
         .review-text { font-size:13px; color:var(--muted); line-height:1.7; }
-        .reviews-cta { text-align:center; margin-top:32px; }
+        .reviews-cta { text-align:center; margin-top:32px; padding:0 32px; }
         .reviews-cta a { font-size:13px; color:var(--red); font-weight:600; }
 
         /* Openingstijden strip */
@@ -142,6 +145,7 @@ export default function HomePage() {
         @media(max-width:580px){
           .usp-grid { grid-template-columns:1fr 1fr; }
           .hero-visual { grid-template-columns:1fr; }
+          .review-card { width:260px; }
         }
       `}</style>
 
@@ -241,29 +245,40 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-        <div className="reviews-grid">
-          {[
+        {(() => {
+          const reviews = [
             { name:"Louis", initial:"L", rating:4, date:"6 jaar geleden", text:"Goede winkel met veel kwaliteit aan Electra. Wasmachines drogers en tv niet veel op voorraad maar wel goed spul." },
             { name:"Mark Geerdink", initial:"M", rating:4, date:"3 jaar geleden", text:"Prima geholpen door een hele aardige dame. Goede service en duidelijke uitleg over de producten." },
             { name:"Inge Kanon", initial:"I", rating:5, date:"7 jaar geleden", text:"Prima winkel. Je wordt hier op je wenken bediend." },
-          ].map(r => (
-            <div key={r.name} className="review-card">
-              <div className="review-top">
-                <div className="review-avatar">{r.initial}</div>
-                <div className="review-meta">
-                  <div className="review-name">{r.name}</div>
-                  <div className="review-date">{r.date}</div>
-                </div>
-                <div className="review-rating">
-                  {Array.from({length:r.rating}).map((_,i) => (
-                    <svg key={i} width="14" height="14" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                  ))}
-                </div>
+            { name:"J. Mensink", initial:"J", rating:5, date:"5 jaar geleden", text:"Altijd vriendelijk en vakkundig geholpen. Koertshuis is al jaren onze vaste leverancier." },
+            { name:"H. Veldman", initial:"H", rating:4, date:"4 jaar geleden", text:"Goede service, ruim assortiment en eerlijke prijzen. Aanrader voor iedereen in de regio." },
+            { name:"R. Steenbergen", initial:"R", rating:5, date:"2 jaar geleden", text:"Uitstekende storingsdienst! 's Avonds nog snel geholpen met een kapotte zekering. Top bedrijf." },
+          ];
+          const allCards = [...reviews, ...reviews];
+          return (
+            <div className="reviews-track-wrap">
+              <div className="reviews-track">
+                {allCards.map((r, idx) => (
+                  <div key={idx} className="review-card">
+                    <div className="review-top">
+                      <div className="review-avatar">{r.initial}</div>
+                      <div className="review-meta">
+                        <div className="review-name">{r.name}</div>
+                        <div className="review-date">{r.date}</div>
+                      </div>
+                      <div className="review-rating">
+                        {Array.from({length:r.rating}).map((_,i) => (
+                          <svg key={i} width="14" height="14" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        ))}
+                      </div>
+                    </div>
+                    <p className="review-text">{r.text}</p>
+                  </div>
+                ))}
               </div>
-              <p className="review-text">{r.text}</p>
             </div>
-          ))}
-        </div>
+          );
+        })()}
         <div className="reviews-cta">
           <a href="https://g.co/kgs/koertshuis" target="_blank" rel="noopener noreferrer">Alle beoordelingen bekijken op Google</a>
         </div>
