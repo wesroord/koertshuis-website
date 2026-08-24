@@ -285,9 +285,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* SOCIAL MEDIA */}
-      <SocialSection />
-
       {/* OPENINGSTIJDEN */}
       <div className="hours-strip">
         <div className="hours-inner">
@@ -319,6 +316,9 @@ export default function HomePage() {
         <p>Wij staan voor u klaar, ook buiten kantooruren. Bel ons direct voor snelle hulp.</p>
         <a href="tel:0541551500" className="btn-white">Bel 0541 55 1500</a>
       </section>
+
+      {/* SOCIAL MEDIA */}
+      <SocialSection />
     </>
   );
 }
