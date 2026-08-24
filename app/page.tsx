@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import SocialSection from "@/components/SocialSection";
 
 export const metadata: Metadata = {
   title: "Koertshuis Elektrotechniek | Elektrotechniek, Storingsdienst & Winkel in De Lutte",
@@ -283,6 +284,9 @@ export default function HomePage() {
           <a href="https://g.co/kgs/koertshuis" target="_blank" rel="noopener noreferrer">Alle beoordelingen bekijken op Google</a>
         </div>
       </section>
+
+      {/* SOCIAL MEDIA */}
+      <SocialSection />
 
       {/* OPENINGSTIJDEN */}
       <div className="hours-strip">
