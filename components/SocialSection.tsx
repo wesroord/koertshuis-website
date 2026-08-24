@@ -20,7 +20,7 @@ export default function SocialSection() {
         .profile-avatar-ring { width:96px; height:96px; border-radius:50%; flex-shrink:0; display:flex; align-items:center; justify-content:center; }
         .profile-avatar-ring--fb { background:#1877F2; }
         .profile-avatar-ring--ig { background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); }
-        .profile-avatar-inner { display:flex; align-items:center; justify-content:center; }
+        .profile-avatar-inner { width:100%; height:100%; border-radius:50%; overflow:hidden; }
         .profile-name { font-size:17px; font-weight:800; color:var(--dark); }
         .profile-followers { font-size:13px; color:var(--muted); }
         .profile-desc { font-size:14px; color:var(--muted); line-height:1.75; max-width:300px; }
@@ -52,9 +52,7 @@ export default function SocialSection() {
             <div className="profile-card">
               <div className="profile-avatar-ring profile-avatar-ring--fb">
                 <div className="profile-avatar-inner profile-avatar-inner--fb">
-                  <svg width="44" height="44" viewBox="0 0 24 24" fill="#fff">
-                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
-                  </svg>
+                  <img src="/social-fb.jpg" alt="Koertshuis winkel" style={{width:'100%',height:'100%',objectFit:'cover',borderRadius:'50%'}} />
                 </div>
               </div>
               <div className="profile-name">Koertshuis winkel</div>
@@ -87,11 +85,7 @@ export default function SocialSection() {
             <div className="profile-card">
               <div className="profile-avatar-ring profile-avatar-ring--ig">
                 <div className="profile-avatar-inner profile-avatar-inner--ig">
-                  <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" strokeWidth="2.5"/>
-                  </svg>
+                  <img src="/social-ig.jpg" alt="koertshuis_de_lutte" style={{width:'100%',height:'100%',objectFit:'cover',borderRadius:'50%'}} />
                 </div>
               </div>
               <div className="profile-name">@koertshuis_de_lutte</div>
