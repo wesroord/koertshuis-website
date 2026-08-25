@@ -233,6 +233,9 @@ export default function ProjectenClient() {
       {/* Grid */}
       <section className="projects-sec">
         <div className="projects-inner">
+          <p style={{ fontSize:14, color:"var(--muted)", marginBottom:32, fontStyle:"italic" }}>
+            Dit is slechts een kleine greep uit de vele projecten die wij door de jaren heen hebben gerealiseerd.
+          </p>
           <div className="projects-grid">
             {PROJECTS.map((proj, pi) => (
               <div
