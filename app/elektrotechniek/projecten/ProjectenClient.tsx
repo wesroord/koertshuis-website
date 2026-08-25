@@ -121,9 +121,8 @@ export default function ProjectenClient() {
     <>
       <style>{`
         /* Hero */
-        .proj-hero { background:var(--dark); color:#fff; padding:72px 32px 64px; position:relative; overflow:hidden; }
-        .proj-hero::after { content:""; position:absolute; inset:0; background:linear-gradient(135deg,rgba(216,30,5,.15) 0%,transparent 60%); pointer-events:none; }
-        .proj-hero-inner { max-width:1200px; margin:0 auto; position:relative; z-index:2; }
+        .proj-hero { background:var(--dark); color:#fff; padding:72px 32px 64px; }
+        .proj-hero-inner { max-width:1200px; margin:0 auto; }
         .breadcrumb { font-size:13px; color:rgba(255,255,255,.4); margin-bottom:16px; display:flex; gap:8px; align-items:center; }
         .breadcrumb a { color:rgba(255,255,255,.4); transition:color .15s; }
         .breadcrumb a:hover { color:rgba(255,255,255,.8); }
