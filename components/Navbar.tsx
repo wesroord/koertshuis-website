@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 const NAV = [
   { label: "Home", href: "/" },
   { label: "Elektrotechniek", href: "/elektrotechniek" },
+  { label: "Projecten", href: "/elektrotechniek/projecten" },
   { label: "Storingsdienst", href: "/storingsdienst" },
   { label: "Winkel", href: "/winkel" },
   { label: "Contact", href: "/contact" },

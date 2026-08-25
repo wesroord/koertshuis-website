@@ -60,6 +60,14 @@ export default function ElektrotechniekPage() {
         .info-img img { width:100%; height:340px; object-fit:cover; display:block; }
         .info-content h2 { font-size:clamp(24px,3.5vw,38px); font-weight:900; letter-spacing:-.04em; color:var(--dark); line-height:1.15; margin-bottom:16px; }
         .info-content p { font-size:15px; color:var(--muted); line-height:1.8; margin-bottom:16px; }
+        .proj-banner { background:var(--dark); padding:48px 32px; }
+        .proj-banner-inner { max-width:1200px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:32px; }
+        .proj-banner h2 { font-size:clamp(20px,3vw,32px); font-weight:900; color:#fff; letter-spacing:-.03em; line-height:1.2; }
+        .proj-banner h2 span { color:var(--red); }
+        .proj-banner p { font-size:14px; color:rgba(255,255,255,.5); margin-top:8px; }
+        .btn-red { background:var(--red); color:#fff; font-size:14px; font-weight:800; padding:13px 28px; border-radius:8px; white-space:nowrap; transition:background .15s,transform .15s; display:inline-block; }
+        .btn-red:hover { background:var(--red-dark); transform:translateY(-2px); }
+        @media(max-width:700px){ .proj-banner-inner{flex-direction:column;align-items:flex-start;} }
 
         .cta-red { background:var(--red); color:#fff; padding:56px 32px; text-align:center; }
         .cta-red h2 { font-size:clamp(22px,3.5vw,38px); font-weight:900; letter-spacing:-.04em; margin-bottom:12px; }
@@ -99,6 +107,16 @@ export default function ElektrotechniekPage() {
           </div>
         </div>
       </section>
+
+      <div className="proj-banner">
+        <div className="proj-banner-inner">
+          <div>
+            <h2>Benieuwd naar onze <span>gerealiseerde projecten</span>?</h2>
+            <p>Van groepsaccommodaties tot restaurants — bekijk wat we hebben gebouwd.</p>
+          </div>
+          <Link href="/elektrotechniek/projecten" className="btn-red">Bekijk projecten →</Link>
+        </div>
+      </div>
 
       <section className="info-strip">
         <div className="info-inner">
