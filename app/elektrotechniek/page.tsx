@@ -114,7 +114,7 @@ export default function ElektrotechniekPage() {
             <h2>Benieuwd naar onze <span>gerealiseerde projecten</span>?</h2>
             <p>Van groepsaccommodaties tot restaurants — bekijk wat we hebben gebouwd.</p>
           </div>
-          <Link href="/elektrotechniek/projecten" className="btn-red">Bekijk projecten →</Link>
+          <Link href="/projecten" className="btn-red">Bekijk projecten →</Link>
         </div>
       </div>
 
