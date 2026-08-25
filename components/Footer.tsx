@@ -44,7 +44,7 @@ export default function Footer() {
           <div className="footer-col">
             <h4>Navigatie</h4>
             <ul>
-              {[["Home","/"],["Elektrotechniek","/elektrotechniek"],["Storingsdienst","/storingsdienst"],["Winkel","/winkel"],["Contact","/contact"],["Vacature","/vacature"]].map(([l,h]) => (
+              {[["Home","/"],["Elektrotechniek","/elektrotechniek"],["Projecten","/elektrotechniek/projecten"],["Storingsdienst","/storingsdienst"],["Winkel","/winkel"],["Contact","/contact"],["Vacature","/vacature"]].map(([l,h]) => (
                 <li key={h}><Link href={h}>{l}</Link></li>
               ))}
             </ul>
