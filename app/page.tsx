@@ -4,6 +4,12 @@ import SocialSection from "@/components/SocialSection";
 
 export const metadata: Metadata = {
   title: "Koertshuis Elektrotechniek | Elektrotechniek, Storingsdienst & Winkel in De Lutte",
+  description: "Koertshuis Elektrotechniek is uw specialist voor elektrotechnische installaties, 24/7 storingsdienst en elektrische apparatuur in De Lutte en omgeving. Bel 0541 55 1500.",
+  openGraph: {
+    title: "Koertshuis Elektrotechniek | De Lutte",
+    description: "Specialist voor elektrotechniek, storingsdienst en elektrische apparatuur in De Lutte. 24/7 bereikbaar op 0541 55 1500.",
+  },
+  alternates: { canonical: "/" },
 };
 
 const DIENSTEN = [

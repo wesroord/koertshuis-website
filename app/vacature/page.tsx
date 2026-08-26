@@ -1,7 +1,15 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-export const metadata: Metadata = { title: "Vacature" };
+export const metadata: Metadata = {
+  title: "Vacature",
+  description: "Koertshuis Elektrotechniek zoekt een enthousiaste elektromonteur. Kom werken in een fijn team in De Lutte. Bekijk de vacature en solliciteer direct.",
+  openGraph: {
+    title: "Vacature Elektromonteur | Koertshuis Elektrotechniek",
+    description: "Wij zoeken een enthousiaste elektromonteur. Kom werken bij Koertshuis Elektrotechniek in De Lutte.",
+  },
+  alternates: { canonical: "/vacature" },
+};
 
 export default function VacaturePage() {
   return (

@@ -1,7 +1,15 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-export const metadata: Metadata = { title: "Elektrotechniek" };
+export const metadata: Metadata = {
+  title: "Elektrotechniek",
+  description: "Koertshuis Elektrotechniek verzorgt complete elektrische installaties, NEN-keuringen, LED-verlichting, camerabeveiliging, domotica en schotelinstallaties voor particulieren en bedrijven.",
+  openGraph: {
+    title: "Elektrotechniek | Koertshuis Elektrotechniek",
+    description: "Complete elektrische installaties, NEN-keuringen, LED-verlichting, camerabeveiliging en domotica in De Lutte en omgeving.",
+  },
+  alternates: { canonical: "/elektrotechniek" },
+};
 
 const SERVICES = [
   {

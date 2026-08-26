@@ -1,7 +1,15 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-export const metadata: Metadata = { title: "Storingsdienst 24/7" };
+export const metadata: Metadata = {
+  title: "Storingsdienst 24/7",
+  description: "Elektrische storing? Koertshuis Elektrotechniek is 24 uur per dag, 7 dagen per week bereikbaar voor spoedgevallen. Bel direct 0541 55 1500.",
+  openGraph: {
+    title: "Storingsdienst 24/7 | Koertshuis Elektrotechniek",
+    description: "Elektrische storing? 24/7 bereikbaar voor spoedgevallen in De Lutte en omgeving. Bel 0541 55 1500.",
+  },
+  alternates: { canonical: "/storingsdienst" },
+};
 
 export default function StoringsdienstPage() {
   return (
