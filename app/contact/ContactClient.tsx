@@ -3,7 +3,33 @@ import { useState } from "react";
 import Link from "next/link";
 
 export default function ContactPage() {
-  const [sent, setSent] = useState(false);
+  const [status, setStatus] = useState<"idle"|"sending"|"sent"|"error">("idle");
+  const [form, setForm] = useState({ voornaam:"", achternaam:"", email:"", telefoon:"", onderwerp:"", bericht:"" });
+  const set = (k: string) => (e: React.ChangeEvent<HTMLInputElement|HTMLTextAreaElement|HTMLSelectElement>) =>
+    setForm(f => ({ ...f, [k]: e.target.value }));
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus("sending");
+    try {
+      const res = await fetch("https://formsubmit.co/ajax/info@koertshuiselektro.nl", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          Naam: `${form.voornaam} ${form.achternaam}`,
+          "E-mailadres": form.email,
+          Telefoon: form.telefoon || "–",
+          Onderwerp: form.onderwerp,
+          Bericht: form.bericht,
+          _subject: `Nieuw bericht via website — ${form.voornaam} ${form.achternaam}`,
+          _captcha: "false",
+        }),
+      });
+      setStatus(res.ok ? "sent" : "error");
+    } catch {
+      setStatus("error");
+    }
+  };
 
   return (
     <>
@@ -80,35 +106,35 @@ export default function ContactPage() {
           <div className="contact-form">
             <h2>Stuur een bericht</h2>
             <p>Vul het formulier in en wij nemen zo snel mogelijk contact met u op, meestal binnen één werkdag.</p>
-            {sent ? (
+            {status === "sent" ? (
               <div className="form-success">
                 Bedankt voor uw bericht! Wij nemen zo snel mogelijk contact met u op.
               </div>
             ) : (
-              <form onSubmit={e => { e.preventDefault(); setSent(true); }}>
+              <form onSubmit={handleSubmit}>
                 <div className="form-row">
                   <div className="form-group">
                     <label>Voornaam *</label>
-                    <input type="text" required placeholder="Jan" />
+                    <input type="text" required placeholder="Jan" value={form.voornaam} onChange={set("voornaam")} />
                   </div>
                   <div className="form-group">
                     <label>Achternaam *</label>
-                    <input type="text" required placeholder="Jansen" />
+                    <input type="text" required placeholder="Jansen" value={form.achternaam} onChange={set("achternaam")} />
                   </div>
                 </div>
                 <div className="form-row">
                   <div className="form-group">
                     <label>E-mailadres *</label>
-                    <input type="email" required placeholder="jan@voorbeeld.nl" />
+                    <input type="email" required placeholder="jan@voorbeeld.nl" value={form.email} onChange={set("email")} />
                   </div>
                   <div className="form-group">
                     <label>Telefoonnummer</label>
-                    <input type="tel" placeholder="06 12 34 56 78" />
+                    <input type="tel" placeholder="06 12 34 56 78" value={form.telefoon} onChange={set("telefoon")} />
                   </div>
                 </div>
                 <div className="form-group">
                   <label>Onderwerp *</label>
-                  <select required>
+                  <select required value={form.onderwerp} onChange={set("onderwerp")}>
                     <option value="">Selecteer een onderwerp</option>
                     <option>Elektrotechniek / installatie</option>
                     <option>Storingsdienst</option>
@@ -121,9 +147,16 @@ export default function ContactPage() {
                 </div>
                 <div className="form-group">
                   <label>Uw bericht *</label>
-                  <textarea required placeholder="Beschrijf uw vraag of project..." />
+                  <textarea required placeholder="Beschrijf uw vraag of project..." value={form.bericht} onChange={set("bericht")} />
                 </div>
-                <button type="submit" className="form-submit">Bericht versturen</button>
+                {status === "error" && (
+                  <p style={{ color:"var(--red)", fontSize:13, marginBottom:12 }}>
+                    Er ging iets mis. Probeer het opnieuw of bel ons op 0541 55 1500.
+                  </p>
+                )}
+                <button type="submit" className="form-submit" disabled={status === "sending"}>
+                  {status === "sending" ? "Versturen..." : "Bericht versturen"}
+                </button>
               </form>
             )}
             <div className="map-card">
