@@ -6,15 +6,25 @@ export default function ScrollReveal() {
   const pathname = usePathname();
 
   useEffect(() => {
-    document.querySelectorAll(".sr-hidden").forEach((el) => {
+    // Reset previous
+    document.querySelectorAll(".sr-hidden, .sr-visible").forEach((el) => {
       el.classList.remove("sr-hidden", "sr-visible");
+      (el as HTMLElement).style.transitionDelay = "";
     });
 
     const timer = setTimeout(() => {
       const sections = document.querySelectorAll("main section");
-      sections.forEach((section, i) => {
-        if (i === 0) return;
-        section.classList.add("sr-hidden");
+      const targets: Element[] = [];
+
+      sections.forEach((section, sectionIdx) => {
+        if (sectionIdx === 0) return;
+        // Animate each direct child separately with stagger
+        const children = Array.from(section.children);
+        children.forEach((child, childIdx) => {
+          (child as HTMLElement).style.transitionDelay = `${childIdx * 0.12}s`;
+          child.classList.add("sr-hidden");
+          targets.push(child);
+        });
       });
 
       const observer = new IntersectionObserver(
@@ -26,10 +36,10 @@ export default function ScrollReveal() {
             }
           });
         },
-        { threshold: 0.06, rootMargin: "0px 0px -40px 0px" }
+        { threshold: 0.08, rootMargin: "0px 0px -60px 0px" }
       );
 
-      document.querySelectorAll(".sr-hidden").forEach((el) => observer.observe(el));
+      targets.forEach((el) => observer.observe(el));
       return () => observer.disconnect();
     }, 100);
 
