@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ScrollReveal from "@/components/ScrollReveal";
 
 const SITE_URL = "https://koertshuis-website.vercel.app";
 
@@ -83,6 +84,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body style={{ display:"flex", flexDirection:"column", minHeight:"100vh" }}>
+        <ScrollReveal />
         <Navbar />
         <main style={{ flex:1 }}>{children}</main>
         <Footer />
